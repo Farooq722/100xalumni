@@ -122,14 +122,13 @@ const userDetails = async (req, res) => {
       skills,
       present_company,
       current_role,
-      previous_role,
-      current_working_location,
-      previous_working_location,
+      // previous_role,
+      // current_working_location,
+      // previous_working_location,
       email,
-      phoneNumber,
+      // phoneNumber,
       graduation_year,
       degree,
-      location,
     } = req.body;
 
     const socialLinks = {
@@ -140,10 +139,15 @@ const userDetails = async (req, res) => {
       personalBlog: req.body.personalblog || req.body.personalBlog || "",
     };
 
+    const location = {
+      country : req.body.country || " ",
+      state: req.body.state || " "
+    }
+
     let profilePhotoUrl = null;
     let resumeUrl = null;
 
-    // Upload profile photo if available
+
     if (req.files?.profilePhoto?.[0]) {
       const profilePhotoFile = getDataUri(req.files.profilePhoto[0]);
       const profilePhotoResponse = await cloudinary.uploader.upload(profilePhotoFile.content, {
@@ -152,7 +156,6 @@ const userDetails = async (req, res) => {
       profilePhotoUrl = profilePhotoResponse.secure_url;
     }
 
-    // Upload resume if available
     if (req.files?.resume?.[0]) {
       const resumeFile = getDataUri(req.files.resume[0]);
       const resumeResponse = await cloudinary.uploader.upload(resumeFile.content, {
@@ -184,13 +187,14 @@ const userDetails = async (req, res) => {
       skills,
       present_company,
       current_role,
-      previous_role,
-      current_working_location,
-      previous_working_location,
+      // previous_role,
+      // current_working_location,
+      // previous_working_location,
       email,
-      phoneNumber,
+      // phoneNumber,
       graduation_year,
       degree,
+      location,
       profilePhoto: profilePhotoUrl || userDetail.profilePhoto,
       resume: resumeUrl || userDetail.resume,
     };
@@ -201,15 +205,12 @@ const userDetails = async (req, res) => {
       }
     }
 
-    // Preserve existing location values
     if (location) {
-      userDetail.location = userDetail.location || {}; // Ensure it exists
+      userDetail.location = userDetail.location || {}; 
       userDetail.location.country = location.country || userDetail.location.country;
       userDetail.location.state = location.state || userDetail.location.state;
-      userDetail.location.city = location.city || userDetail.location.city;
     }
 
-    // Preserve social links
     userDetail.socialLinks = userDetail.socialLinks || {};
     Object.keys(socialLinks).forEach((key) => {
       if (socialLinks[key]) {

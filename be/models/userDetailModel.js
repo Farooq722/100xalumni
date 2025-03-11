@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { type } = require("os");
 
 const userProfileSchema = new mongoose.Schema(
   {
@@ -34,26 +35,26 @@ const userProfileSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    previous_role: {
-      type: String,
-      default: "",
-    },
-    current_working_location: {
-      type: String,
-      default: "",
-    },
-    previous_working_location: {
-      type: String,
-      default: "",
-    },
+    // previous_role: {
+    //   type: String,
+    //   default: "",
+    // },
+    // current_working_location: {
+    //   type: String,
+    //   default: "",
+    // },
+    // previous_working_location: {
+    //   type: String,
+    //   default: "",
+    // },
     email: {
       type: String,
       required: true,
     },
-    phoneNumber: {
-      type: String,
-      default: "",
-    },
+    // phoneNumber: {
+    //   type: String,
+    //   default: "",
+    // },
     graduation_year: {
       type: Number,
     },
@@ -67,10 +68,6 @@ const userProfileSchema = new mongoose.Schema(
         default: "",
       },
       state: {
-        type: String,
-        default: "",
-      },
-      city: {
         type: String,
         default: "",
       },
@@ -97,28 +94,10 @@ const userProfileSchema = new mongoose.Schema(
         default: "",
       },
     },
-    experience: [
-      {
-        company: {
-          type: String,
-          default: "",
-        },
-        role: {
-          type: String,
-          default: "",
-        },
-        location: {
-          type: String,
-          default: "",
-        },
-        startDate: {
-          type: Date,
-        },
-        endDate: {
-          type: [Date, String],
-        },
-      },
-    ],
+    experience: {
+      type: String,
+      default: "Fresher"
+    }
   },
   { timestamps: true }
 );
