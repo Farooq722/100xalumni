@@ -1,6 +1,6 @@
 import React from "react";
 import { BackgroundGradient } from "../ui/background-gradient";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function BackgroundGradientDemo({ user }) {
   const navigate = useNavigate();
@@ -35,8 +35,7 @@ export function BackgroundGradientDemo({ user }) {
         </p>
 
         <p className="text-xs sm:text-sm text-center text-neutral-800 dark:text-neutral-400 mt-1">
-          <span className="font-medium">Graduation Year:</span>{" "}
-          {user?.graduateYear || "N/A"}
+          <Link to={user?.profile?.socialLinks?.twitter || "N/A"} target="_blank">Twitter</Link>
         </p>
 
         <div className="flex justify-center mt-5">

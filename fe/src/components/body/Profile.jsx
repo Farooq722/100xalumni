@@ -40,7 +40,7 @@ const Profile = () => {
           <NavbarDemo />
         </div>
 
-        <div className="flex flex-col md:flex-row min-h-screen pt-16 gap-8 items-center">
+        <div className="flex flex-col md:flex-row min-h-screen pt-8 gap-6 items-center">
           
           <div className="w-full md:w-1/3 flex flex-col items-center text-center md:text-left mt-4">
             <img
@@ -53,7 +53,7 @@ const Profile = () => {
               {userData?.fullName}
             </h1>
 
-            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mt-2 px-4">
+            <p className="text-sm sm:text-base text-gray-900 dark:text-gray-300 mt-2 px-4">
               {userData?.profile?.bio || "No bio available"}
             </p>
 
@@ -77,7 +77,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-2/3 bg-white dark:bg-gray-900 shadow-lg p-6 rounded-lg">
+          <div className="w-full md:w-2/3 dark:bg-gray-900 shadow-lg p-6 rounded-lg">
             <div className="text-gray-900 dark:text-white text-sm sm:text-base">
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2">
@@ -104,7 +104,7 @@ const Profile = () => {
                   <Download size={20} />
                   <button
                     onClick={() => window.open(userData?.profile?.resume, "_blank")}
-                    className="text-blue-500 hover:underline"
+                    className="text-black hover:underline hover:text-red-600"
                   >
                     Download Resume
                   </button>
@@ -113,8 +113,8 @@ const Profile = () => {
             </div>
 
             {username && (
-              <div className="mt-6">
-                <img src={`https://ghchart.rshah.org/${username}`} alt="GitHub Contribution Chart" className="w-full max-w-sm mx-auto" />
+              <div className="mt-10 p-6 flex justify-center items-center bg-gray-800 rounded-2xl">
+                <img src={`https://ghchart.rshah.org/${username}`} alt="GitHub Contribution Chart" className="w-full max-w-4xl mx-auto" />
               </div>
             )}
           </div>

@@ -8,7 +8,7 @@ import { BACKEND_API_END_POINT } from "@/utils/constant";
 import { toast } from "react-toastify";
 
 const Body = () => {
-  const { user, allUsersData, setAllUsersData } = useUserStore();
+  const { user, allUsersData, setAllUsersData, userData } = useUserStore();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Body = () => {
   }, [user]);
 
   const sortedUsers = [...allUsersData].sort((a, b) => {
-    return a._id === user?._id ? -1 : b._id === user?._id ? 1 : 0;
+    return a._id === userData?._id ? -1 : b._id === user?._id ? 1 : 0;
   });
 
   return (

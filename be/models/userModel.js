@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
     profilePhoto: { type: String, default: "https://github.com/shadcn.png" },
+    
     profile: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "UserInfo", 
