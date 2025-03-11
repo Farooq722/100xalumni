@@ -25,6 +25,7 @@ const Alumni = () => {
     twitter: "",
     linkedin: "",
     github: "",
+    experience: "",
     personalblog: "",
     portfoliowebsite: "",
     country: "",
