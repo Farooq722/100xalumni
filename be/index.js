@@ -10,7 +10,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const allowedOrigins = [    
+const allowedOrigins = [  
+    "https://100xalumni-fe.vercel.app",
     "http://localhost:5173"
 ];
 
