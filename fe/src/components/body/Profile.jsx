@@ -40,7 +40,7 @@ const Profile = () => {
           <NavbarDemo />
         </div>
 
-        <div className="flex flex-col md:flex-row min-h-screen pt-8 gap-6 items-center">
+        <div className="flex flex-col md:flex-row min-h-screen pt-16 gap-6 items-center">
           
           <div className="w-full md:w-1/3 flex flex-col items-center text-center md:text-left mt-4">
             <img
@@ -64,20 +64,20 @@ const Profile = () => {
               <Heart color="red" size={24} />
             </Button>
 
-            <div className="flex flex-col items-center md:items-start mt-4 space-y-2">
-              <Link to={userData?.profile?.socialLinks?.twitter || "#"} target="_blank" className="flex items-center gap-2 text-sm sm:text-base">
+            <div className="flex flex-col justify-center items-center md:items-start mt-4 space-y-2">
+              <Link to={userData?.profile?.socialLinks?.twitter || "#"} target="_blank" className="flex justify-center items-center gap-2 text-sm sm:text-base">
                 <IconBrandTwitter size={20} /> Twitter
               </Link>
-              <Link to={userData?.profile?.socialLinks?.linkedIn || "#"} target="_blank" className="flex items-center gap-2 text-sm sm:text-base">
+              <Link to={userData?.profile?.socialLinks?.linkedIn || "#"} target="_blank" className="flex justify-center items-center gap-2 text-sm sm:text-base">
                 <IconBrandLinkedin size={20} /> LinkedIn
               </Link>
-              <Link to={userData?.profile?.socialLinks?.github || "#"} target="_blank" className="flex items-center gap-2 text-sm sm:text-base">
+              <Link to={userData?.profile?.socialLinks?.github || "#"} target="_blank" className="flex justify-center items-center gap-2 text-sm sm:text-base">
                 <IconBrandInstagram size={20} /> GitHub
               </Link>
             </div>
           </div>
 
-          <div className="w-full md:w-2/3 dark:bg-gray-900 shadow-lg p-6 rounded-lg">
+          <div className="w-full md:w-2/3 dark:bg-gray-900 shadow-lg p-6 rounded-lg ">
             <div className="text-gray-900 dark:text-white text-sm sm:text-base">
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2">
