@@ -41,7 +41,6 @@ const Profile = () => {
         </div>
 
         <div className="flex flex-col md:flex-row min-h-screen pt-16 gap-6 items-center">
-          
           <div className="w-full md:w-1/3 flex flex-col items-center text-center md:text-left mt-4">
             <img
               src={finalProfilePhoto}
@@ -65,13 +64,25 @@ const Profile = () => {
             </Button>
 
             <div className="flex flex-col justify-center items-center md:items-start mt-4 space-y-2">
-              <Link to={userData?.profile?.socialLinks?.twitter || "#"} target="_blank" className="flex justify-center items-center gap-2 text-sm sm:text-base">
+              <Link
+                to={userData?.profile?.socialLinks?.twitter || "#"}
+                target="_blank"
+                className="flex justify-center items-center gap-2 text-sm sm:text-base"
+              >
                 <IconBrandTwitter size={20} /> Twitter
               </Link>
-              <Link to={userData?.profile?.socialLinks?.linkedIn || "#"} target="_blank" className="flex justify-center items-center gap-2 text-sm sm:text-base">
+              <Link
+                to={userData?.profile?.socialLinks?.linkedIn || "#"}
+                target="_blank"
+                className="flex justify-center items-center gap-2 text-sm sm:text-base"
+              >
                 <IconBrandLinkedin size={20} /> LinkedIn
               </Link>
-              <Link to={userData?.profile?.socialLinks?.github || "#"} target="_blank" className="flex justify-center items-center gap-2 text-sm sm:text-base">
+              <Link
+                to={userData?.profile?.socialLinks?.github || "#"}
+                target="_blank"
+                className="flex justify-center items-center gap-2 text-sm sm:text-base"
+              >
                 <IconBrandInstagram size={20} /> GitHub
               </Link>
             </div>
@@ -103,7 +114,9 @@ const Profile = () => {
                 <div className="flex items-center gap-2">
                   <Download size={20} />
                   <button
-                    onClick={() => window.open(userData?.profile?.resume, "_blank")}
+                    onClick={() =>
+                      window.open(userData?.profile?.resume, "_blank")
+                    }
                     className="text-black hover:underline hover:text-red-600"
                   >
                     Download Resume
@@ -114,7 +127,11 @@ const Profile = () => {
 
             {username && (
               <div className="mt-10 p-6 flex justify-center items-center bg-gray-800 rounded-2xl">
-                <img src={`https://ghchart.rshah.org/${username}`} alt="GitHub Contribution Chart" className="w-full max-w-4xl mx-auto" />
+                <img
+                  src={`https://ghchart.rshah.org/${username}`}
+                  alt="GitHub Contribution Chart"
+                  className="w-full max-w-4xl mx-auto"
+                />
               </div>
             )}
           </div>

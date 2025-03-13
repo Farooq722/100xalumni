@@ -22,32 +22,32 @@ export function Login() {
     e.preventDefault();
 
     try {
-      setLoader(true)
+      setLoader(true);
       const { data } = await axios.post(
-        `${BACKEND_API_END_POINT}/login`, 
-        {email, password }, {
+        `${BACKEND_API_END_POINT}/login`,
+        { email, password },
+        {
           headers: {
             "Content-Type": "application/json",
           },
-          withCredentials: true, 
+          withCredentials: true,
         }
       );
 
       // console.log(data);
-      if(data.success) {
-        localStorage.setItem("token", data?.accessToken)
+      if (data.success) {
+        localStorage.setItem("token", data?.accessToken);
         login(data.user);
         toast.success(data.msg);
         navigate("/dashboard");
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.response?.data?.msg || "Something went wrong");    
+      toast.error(error.response?.data?.msg || "Something went wrong");
+    } finally {
+      setLoader(false);
     }
-    finally {
-      setLoader(false)
-    }
-  }
+  };
 
   return (
     <WavyBackground>
@@ -62,32 +62,34 @@ export function Login() {
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4"></div>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>
-            <Input 
-            id="email"
-            value={email}
-            placeholder="email@gmail.com" 
-            type="email" 
-            onChange={(e) => {setEmail(e.target.value)}}
+            <Input
+              id="email"
+              value={email}
+              placeholder="email@gmail.com"
+              type="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">Password</Label>
-            <Input 
-            id="password" 
-            value={password}
-            placeholder="••••••••" 
-            type="password" 
-            onChange={(e) => {setPassword(e.target.value)}}
+            <Input
+              id="password"
+              value={password}
+              placeholder="••••••••"
+              type="password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </LabelInputContainer>
-          <button
-            className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-          >
+          <button className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]">
             Login &rarr;
             <BottomGradient />
           </button>
 
-          { loader && (
+          {loader && (
             <div className="fixed top-0 left-0 right-0 bottom-0 z-20 bg-black/30 flex justify-center items-center">
               <RingLoader color="white" size={50} />
             </div>

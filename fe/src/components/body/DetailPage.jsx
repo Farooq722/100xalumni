@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const DetailPage = () => {
-  return (
-    <div>
-      alumni details page
-    </div>
-  )
-}
+  return <div>alumni details page</div>;
+};
 
-export default DetailPage
+export default DetailPage;

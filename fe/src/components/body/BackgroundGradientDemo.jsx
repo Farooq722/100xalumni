@@ -35,7 +35,12 @@ export function BackgroundGradientDemo({ user }) {
         </p>
 
         <p className="text-xs sm:text-sm text-center text-neutral-800 dark:text-neutral-400 mt-1">
-          <Link to={user?.profile?.socialLinks?.twitter || "N/A"} target="_blank">Twitter</Link>
+          <Link
+            to={user?.profile?.socialLinks?.twitter || "N/A"}
+            target="_blank"
+          >
+            Twitter
+          </Link>
         </p>
 
         <div className="flex justify-center mt-5">
