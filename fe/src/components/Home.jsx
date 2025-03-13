@@ -1,11 +1,10 @@
-import React from 'react'
-import Navbar from './navbar/Navbar'
-import { LampDemo } from './ui/LampDemo'
-import { HeroHighlightDemo } from './ui/HeroHighlightDemo'
-import { TypewriterEffectSmoothDemo } from './ui/TypewriterEffectSmoothDemo'
-import Footer from './footer/Footer'
-import ContinuousScroll from './ui/ContinuousScroll '
-
+import React from "react";
+import Navbar from "./navbar/Navbar";
+import { LampDemo } from "./ui/LampDemo";
+import { HeroHighlightDemo } from "./ui/HeroHighlightDemo";
+import { TypewriterEffectSmoothDemo } from "./ui/TypewriterEffectSmoothDemo";
+import Footer from "./footer/Footer";
+import ContinuousScroll from "./ui/ContinuousScroll ";
 
 const Home = () => {
   return (
@@ -17,7 +16,7 @@ const Home = () => {
       <TypewriterEffectSmoothDemo />
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

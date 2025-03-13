@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { BACKEND_API_END_POINT } from "@/utils/constant";
 import useUserStore from "../zustund/store";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
 
 const defaultPhoto = "https://github.com/shadcn.png";
 
@@ -63,7 +63,6 @@ const Navbar = () => {
           {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           {!user ? (
             <div className="flex gap-4 italic">
@@ -99,21 +98,32 @@ const Navbar = () => {
                     </Avatar>
                     <div className="flex flex-col gap-2 italic">
                       <h3 className="text-lg">{userData?.fullName}</h3>
-                      <p className="text-sm text-slate-300">{userData?.email}</p>
-                      <p className="text-sm uppercase text-slate-300">{userData?.role}</p>
+                      <p className="text-sm text-slate-300">
+                        {userData?.email}
+                      </p>
+                      <p className="text-sm uppercase text-slate-300">
+                        {userData?.role}
+                      </p>
                     </div>
                   </div>
                   <div className="flex justify-evenly mt-4">
                     <Button
                       className={`hover:bg-slate-600 bg-slate-500 ${
-                        userData?.role !== "alumni" ? "opacity-50 cursor-not-allowed" : ""
+                        userData?.role !== "alumni"
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
                       }`}
-                      onClick={() => userData?.role === "alumni" && navigate("/profile")}
+                      onClick={() =>
+                        userData?.role === "alumni" && navigate("/profile")
+                      }
                       disabled={userData?.role !== "alumni"}
                     >
                       Visit Profile
                     </Button>
-                    <Button className="hover:bg-red-800 bg-red-400" onClick={logoutHandler}>
+                    <Button
+                      className="hover:bg-red-800 bg-red-400"
+                      onClick={logoutHandler}
+                    >
                       Logout
                     </Button>
                   </div>
@@ -124,25 +134,39 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col items-center space-y-4 mt-3">
           {!user ? (
             <>
-              <Link to={"/login"} className="block text-lg italic" onClick={() => setIsMenuOpen(false)}>
+              <Link
+                to={"/login"}
+                className="block text-lg italic"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Login
               </Link>
-              <Link to={"/signup"} className="block text-lg italic" onClick={() => setIsMenuOpen(false)}>
+              <Link
+                to={"/signup"}
+                className="block text-lg italic"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Signup
               </Link>
             </>
           ) : (
             <>
               <NavbarDemo />
-              <Link to={"/profile"} className="block text-lg italic" onClick={() => setIsMenuOpen(false)}>
+              <Link
+                to={"/profile"}
+                className="block text-lg italic"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Profile
               </Link>
-              <button className="text-lg text-red-400 italic" onClick={logoutHandler}>
+              <button
+                className="text-lg text-red-400 italic"
+                onClick={logoutHandler}
+              >
                 Logout
               </button>
             </>

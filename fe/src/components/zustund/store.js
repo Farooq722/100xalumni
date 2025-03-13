@@ -9,14 +9,14 @@ const useUserStore = create((set) => ({
 
   setAllUsersData: (data) => {
     set((state) => ({
-      allUsersData: data.length ? data : state.allUsersData, 
+      allUsersData: data.length ? data : state.allUsersData,
     }));
   },
 
   updateUserData: (updatedUser) => {
     set((state) => {
       const isCurrentUser = state.userData?._id === updatedUser._id;
-      
+
       if (isCurrentUser) {
         localStorage.setItem("userData", JSON.stringify(updatedUser));
       }

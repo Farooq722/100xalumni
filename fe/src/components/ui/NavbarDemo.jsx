@@ -13,7 +13,7 @@ export function NavbarDemo() {
 }
 
 function Navbar({ className }) {
-  const { user, userData } = useUserStore();
+  const { userData } = useUserStore();
 
   return (
     <div
@@ -25,7 +25,7 @@ function Navbar({ className }) {
         </Link>
         {userData.role === "alumni" ? (
           <Link to={"/alumni"} className="hover:text-slate-300 text-white">
-            100xAlumni
+            100xForm
           </Link>
         ) : (
           <Link

@@ -8,12 +8,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { WavyBackground } from "../ui/WavyBackground ";
 import { toast } from "react-toastify";
 import axios from "axios";
-import RingLoader from "react-spinners/RingLoader"
+import RingLoader from "react-spinners/RingLoader";
 import { BACKEND_API_END_POINT } from "@/utils/constant";
 import useUserStore from "../zustund/store";
 
 export function Signup() {
-  
   const { login, loader, setLoader } = useUserStore();
   const navigate = useNavigate();
 
@@ -45,20 +44,18 @@ export function Signup() {
       );
 
       if (data.success) {
-        localStorage.setItem("token", data?.accessToken)
+        localStorage.setItem("token", data?.accessToken);
         login(data.user);
         toast.success(data.msg);
-        navigate("/dashboard");
+        navigate("/login");
       }
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.msg || "Something went wrong");
-    }
-    finally {
+    } finally {
       setLoader(false);
     }
   };
-
 
   return (
     <WavyBackground>
@@ -126,17 +123,15 @@ export function Signup() {
             </RadioGroup>
           </LabelInputContainer>
 
-          <button
-            className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-          >
+          <button className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]">
             Sign up &rarr;
             <BottomGradient />
           </button>
-          { loader && (
-              <div className="fixed top-0 left-0 right-0 bottom-0 z-20 bg-black/30 flex justify-center items-center">
-                <RingLoader color="white" size={50} />
-              </div>
-          ) }
+          {loader && (
+            <div className="fixed top-0 left-0 right-0 bottom-0 z-20 bg-black/30 flex justify-center items-center">
+              <RingLoader color="white" size={50} />
+            </div>
+          )}
 
           <div className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
             Already have an account?{" "}
@@ -165,7 +160,9 @@ const BottomGradient = () => (
 );
 
 const LabelInputContainer = ({ children, className }) => (
-  <div className={cn("flex flex-col space-y-2 w-full", className)}>{children}</div>
+  <div className={cn("flex flex-col space-y-2 w-full", className)}>
+    {children}
+  </div>
 );
 
 const SocialButton = ({ icon, label }) => (
@@ -176,7 +173,9 @@ const SocialButton = ({ icon, label }) => (
     {React.cloneElement(icon, {
       className: "h-4 w-4 text-neutral-800 dark:text-neutral-300",
     })}
-    <span className="text-neutral-700 dark:text-neutral-300 text-sm">{label}</span>
+    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+      {label}
+    </span>
     <BottomGradient />
   </button>
 );
