@@ -6,6 +6,7 @@ import useUserStore from "./zustund/store";
 import axios from "axios";
 import { BACKEND_API_END_POINT } from "@/utils/constant";
 import { toast } from "react-toastify";
+import DetailPage from "./body/DetailPage";
 
 const Body = () => {
   const { user, allUsersData, setAllUsersData, userData } = useUserStore();
@@ -42,14 +43,16 @@ const Body = () => {
   });
 
   return (
-    <div className="bg-slate-100 min-h-screen">
+    <div className="bg-slate-200 min-h-screen">
       {user && (
         <>
           <Navbar />
           <div className="container mx-auto p-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {sortedUsers.map((item) => (
-                <BackgroundGradientDemo key={item._id} user={item} />
+                <div key={item._id}>
+                  <BackgroundGradientDemo user={item} />,
+                </div>
               ))}
             </div>
           </div>
